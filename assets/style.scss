@@ -1,0 +1,59 @@
+/*Variables*/
+$main-accent: #fa5951;
+$gray: #707070;
+$soft-gray: #b8b8b8;
+$h-font: 'Merriweather', serif;
+$t-font: 'Merriweather Sans', sans-serif;
+
+html, body{
+  overflow-x: hidden;
+  font-family: $t-font;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: $h-font;
+  margin: 0;
+  &.gray{
+    color: $gray;
+  }
+}
+
+p{
+  line-height: 30px;
+}
+
+.name, .title, .avatar{
+  opacity: 0;
+}
+
+
+.cover-project{
+  height: 50vh;
+  width: 100%;
+}
+
+.inner-cover{
+  background-color: #fff;
+}
+
+.uk-button{
+  font-family: $t-font;
+  &.button-like{
+    border-radius: 180px;
+    color: #Fff;
+    background-color: $main-accent;
+    text-transform: capitalize;
+    transition: all 200ms ease-in-out;
+    .heart-icon{
+      transition: all 200ms ease-in-out;
+    }
+    &:active{
+      .heart-icon{
+        transform: translateY(-5px);
+      }
+    }
+
+  }
+}
