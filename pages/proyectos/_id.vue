@@ -5,21 +5,7 @@
     <nuxt-link to="/blog">Blog</nuxt-link>
 
     <div class="uk-container">
-
-      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-        <div class="uk-navbar-left">
-          <div class="uk-navbar-item">
-            <Author :author="author"></Author>
-          </div>
-        </div>
-        <div class="uk-navbar-right">
-          <div class="uk-navbar-item">
-            <Navigator></Navigator>
-          </div>
-        </div>
-      </nav>
-
-
+      <Navigator></Navigator>
     </div>
   </div>
   <Cover :cover="cover"></Cover>
@@ -48,7 +34,6 @@
 
 <script>
 import Cover from '~/components/Projects/Cover.vue'
-import Author from '~/components/Projects/Author.vue'
 import Navigator from '~/components/Projects/Navigator.vue'
 import { TimelineLite, Back } from 'gsap'
 
@@ -162,7 +147,6 @@ export default {
 
   components: {
     Cover,
-    Author,
     Navigator
   },
   data() {
@@ -170,11 +154,7 @@ export default {
       cover: {
         'url': 'https://images.unsplash.com/photo-1468078809804-4c7b3e60a478?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
       },
-      author: {
-        'avatar': 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80',
-        'name': "José Puma",
-        'title': 'Full Stack Developer'
-      }
+
     }
   }
 
