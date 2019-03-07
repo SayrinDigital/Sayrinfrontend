@@ -4,7 +4,7 @@
 
     <nuxt-link to="/blog">Blog</nuxt-link>
 
-    <div class="uk-container">
+    <div class="uk-container uk-container-large">
       <Navigator></Navigator>
     </div>
   </div>
@@ -42,11 +42,12 @@ export default {
   transition: {
      mode: 'out-in',
      css: false,
+     appear: true,
      beforeEnter (el) {
+
     },
     enter (el, done) {
-      done()
-      var tl = new TimelineLite()
+      var tl = new TimelineLite({ onComplete: done })
       tl.to('.avatar', 3,{
         ease: Expo.easeOut,
                 startAt: {scale: 1.5, opacity: 0, rotation: -20},
@@ -92,7 +93,7 @@ export default {
                startAt: {scale: 2},
                scale: 1,
      }, 'begin+=0.6')
-
+      //done()
     },
     leave (el, done) {
 
