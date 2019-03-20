@@ -3,20 +3,22 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
-
+  server: {
+    port: 3500, // default: 3000
+  },
   /*
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: "Sayrin - Agencia Digital",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: "La mezcla perfecta para hacer de tu marca algo increíble e innovador, trabajando con nuestras herramientas para impulsarte y diferenciarte de tu competencia." }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400|Merriweather:300' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,500,700,900' }
     ],
     script: [
       { src: '/js/salesiq.js', body: true },
@@ -39,13 +41,16 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    {src: '~/plugins/uikit.js', ssr: false }
+    {src: '~/plugins/uikit.js', ssr: false },
+    {src: '~/plugins/waypoints.js', ssr: false },
+    {src: '~/plugins/smoothscroll.js', ssr: false }
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
     ['@nuxtjs/google-analytics', {
      id: 'UA-115640865-2'
    }]
