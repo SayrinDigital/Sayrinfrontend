@@ -1,6 +1,6 @@
 <template>
   <div class="uk-position-relative animate-spy uk-overflow-hidden" @mouseover="mouseOver" @mouseleave="mouseLeave" v-view="viewHandler">
-    <img ref="image" class="uk-width-1-1" :src="source" alt="">
+    <img ref="image" class="uk-width-1-1" :src="source" alt="" @load="imgloaded">
     <div class="uk-position-cover uk-background-default" ref="cover"></div>
   </div>
 </template>
@@ -18,7 +18,8 @@ if(process.browser){
 export default {
  data(){
    return{
-     waypointed: false
+     waypointed: false,
+     isloaded: false
    }
  },
  props: ['source', 'inview'],
@@ -26,6 +27,11 @@ export default {
    this.setHoverAnimation()
  },
  methods: {
+
+   imgloaded(){
+     this.isloaded = true
+     console.log('loaded')
+   },
 
    mouseOver(){
 
@@ -36,7 +42,7 @@ export default {
    },
 
    viewHandler(e){
-     if(e.percentInView>0.2){
+     if(e.percentInView>0.2 && this.isloaded){
        this.setAnimation(this.inview)
        this.waypointed = true
      }

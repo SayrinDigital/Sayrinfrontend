@@ -1,7 +1,7 @@
 <template>
 <div>
 
-  <div class="uk-container tm-container-medium" id="mainnav">
+  <div class="uk-container tm-container-medium"  id="mainnav">
     <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
       <div class="uk-navbar-left">
         <div class="uk-navbar-item">
@@ -195,7 +195,11 @@ export default {
         this.isopen = false
 
       }
-    }
+    },
+    handleFocusOut() {
+            //this.openMenu()
+            console.log('focus out')
+        }
   }
 
 }

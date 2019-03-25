@@ -2,6 +2,7 @@
 <div>
 
     <div class="top-header bg-default uk-position-relative uk-overflow-hidden">
+      <img class="uk-hidden" src="/img/header-hd.png" @load="imgcoverloaded" alt="">
       <div class="uk-position-cover  uk-background-cover cover-header" uk-parallax="bgy: -50"   uk-img data-src="/img/header-hd.png"></div>
     <div class="uk-container tm-container-medium">
       <div uk-grid class="uk-flex uk-flex-middle min-height-viewport">
@@ -313,17 +314,26 @@ export default {
     return{
       waypointed: false,
       tl: null,
-      alreadyshown: false
+      alreadyshown: false,
+      iscoverloaded: false
     }
   },
 
    mounted(){
 
-     this.introAnimation()
+
+    //this.introAnimation()
+
+
 
    },
 
    methods: {
+
+     imgcoverloaded(){
+       this.iscoverloaded = true
+        this.introAnimation()
+     },
 
       introAnimation(){
         this.tl = new TimelineLite()
@@ -521,6 +531,12 @@ export default {
                    rotation: 0,
          }, 'begin+=4.6')
 
+         this.tl.to('#mainnav', 2, {
+           ease: Expo.easeOut,
+                   startAt: {y: '-100%'},
+                   y: '0%'
+         }, 'begin+=5')
+
          this.alreadyshown = true
 
       }
@@ -594,6 +610,10 @@ export default {
 
 .ring{
   visibility: hidden;
+}
+
+#mainnav{
+  transform: translateY(-100%);
 }
 
 </style>

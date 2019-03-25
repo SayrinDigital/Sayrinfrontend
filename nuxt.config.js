@@ -58,7 +58,10 @@ module.exports = {
     ['@nuxtjs/google-analytics', {
      id: 'UA-115640865-2'
    }],
-   '@nuxtjs/sitemap'
+   '@nuxtjs/sitemap',
+   ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-3799538129955561'
+    }]
   ],
 
   /*
