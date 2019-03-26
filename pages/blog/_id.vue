@@ -145,6 +145,8 @@ export default {
   },
   head () {
     return {
+      __dangerouslyDisableSanitizers: ['script'],
+     script: [{ innerHTML: JSON.stringify(this.structuredData), type: 'application/ld+json' }],
       title: this.post.title +' | Sayrin',
       meta: [
         { hid: 'og-title', property: 'og:title', content: this.post.title +' | Sayrin ' },
@@ -153,8 +155,6 @@ export default {
         { hid: 'description', name: 'description', content: this.post.intro },
         { hid: 'og-image', name: 'og:image', content: this.baseUrl + this.post.cover.url },
         { hid: 'og-url', name: 'og:url', content: 'https://sayrin.cl/blog/' + this.post.id },
-        __dangerouslyDisableSanitizers: ['script'],
-        script: [{ innerHTML: JSON.stringify(this.structuredData), type: 'application/ld+json' }]
         // other meta
       ]
     }
