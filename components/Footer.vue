@@ -2,7 +2,7 @@
 
   <section>
 
-         <section class="bg-sayrin">
+         <section v-if="this.$route.path!= '/contacto'" class="bg-sayrin">
            <div class="uk-section uk-section-xlarge">
              <div class="uk-container tm-container-medium">
                <div class="uk-width-3-5@m" uk-scrollspy="cls:uk-animation-slide-bottom-medium">

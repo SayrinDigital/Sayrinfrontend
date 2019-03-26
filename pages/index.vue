@@ -531,11 +531,11 @@ export default {
                    rotation: 0,
          }, 'begin+=4.6')
 
-         this.tl.to('#mainnav', 2, {
+         /*this.tl.to('#mainnav', 2, {
            ease: Expo.easeOut,
                    startAt: {y: '-100%'},
                    y: '0%'
-         }, 'begin+=5')
+         }, 'begin+=5')*/
 
          this.alreadyshown = true
 
@@ -596,9 +596,6 @@ export default {
 
 <style>
 
-.text-mask, .text-char{
-  transform: translateY(100%);
-}
 
 .cover-header, .text-char{
   opacity: 0;
@@ -612,8 +609,6 @@ export default {
   visibility: hidden;
 }
 
-#mainnav{
-  transform: translateY(-100%);
-}
+
 
 </style>

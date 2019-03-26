@@ -101,7 +101,33 @@ import VueMarkdown from 'vue-markdown'
 export default {
  data(){
    return{
-     baseUrl: 'https://api.sayrin.cl'
+     baseUrl: 'https://api.sayrin.cl',
+     structuredData: {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "headline": this.post.title,
+      "image": this.baseUrl + this.post.cover.url,
+      "editor": this.post.user.name ,
+      "genre": "digital agency design",
+      "keywords": "diseño agencia chile peru paginas web",
+      "publisher": "Sayrin",
+      "url": "https://sayrin.cl/blog/" + this.post.id,
+      "description": "Amamos escribir cosas interesantes",
+      "datePublished": "2019-03-20",
+      "articleBody": this.post.intro,
+      "publisher": {
+   "@type": "Organization",
+   "name": "Sayrin",
+   "logo": {
+     "@type": "ImageObject",
+     "url": "https://google.com/logo.jpg"
+   }
+   },
+       "author": {
+          "@type": "Person",
+          "name": this.post.user.name
+      }
+    },
    }
  },
   async asyncData({
@@ -126,7 +152,9 @@ export default {
         { hid: 'og-description', property: 'og:description', content: this.post.intro },
         { hid: 'description', name: 'description', content: this.post.intro },
         { hid: 'og-image', name: 'og:image', content: this.baseUrl + this.post.cover.url },
-        { hid: 'og-url', name: 'og:url', content: 'https://sayrin.cl/blog/' + this.post.id }
+        { hid: 'og-url', name: 'og:url', content: 'https://sayrin.cl/blog/' + this.post.id },
+        __dangerouslyDisableSanitizers: ['script'],
+        script: [{ innerHTML: JSON.stringify(this.structuredData), type: 'application/ld+json' }]
         // other meta
       ]
     }
