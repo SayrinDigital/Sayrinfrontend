@@ -64,6 +64,10 @@ module.exports = {
     }]
   ],
 
+  sitemap: {
+    hostname: 'https://sayrin.cl',
+  },
+
   /*
   ** Build configuration
   */
