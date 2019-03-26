@@ -102,32 +102,6 @@ export default {
  data(){
    return{
      baseUrl: 'https://api.sayrin.cl',
-     structuredData: {
-      "@context": "http://schema.org",
-      "@type": "BlogPosting",
-      "headline": this.post.title,
-      "image": this.baseUrl + this.post.cover.url,
-      "editor": this.post.user.name ,
-      "genre": "digital agency design",
-      "keywords": "diseño agencia chile peru paginas web",
-      "publisher": "Sayrin",
-      "url": "https://sayrin.cl/blog/" + this.post.id,
-      "description": "Amamos escribir cosas interesantes",
-      "datePublished": "2019-03-20",
-      "articleBody": this.post.intro,
-      "publisher": {
-   "@type": "Organization",
-   "name": "Sayrin",
-   "logo": {
-     "@type": "ImageObject",
-     "url": "https://google.com/logo.jpg"
-   }
-   },
-       "author": {
-          "@type": "Person",
-          "name": this.post.user.name
-      }
-    },
    }
  },
   async asyncData({
@@ -139,8 +113,36 @@ export default {
       }
     );
 
+    const structuredData = {
+          "@context": "http://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.data.title,
+          "image": 'https://api.sayrin.cl' + post.data.cover.url,
+          "editor": post.data.user.name ,
+          "genre": "digital agency design",
+          "keywords": "diseño agencia chile peru paginas web",
+          "publisher": "Sayrin",
+          "url": "https://sayrin.cl/blog/" + post.data.id,
+          "description": "Amamos escribir cosas interesantes",
+          "datePublished": post.data.updatedAt,
+          "articleBody": post.data.intro,
+          "publisher": {
+       "@type": "Organization",
+       "name": "Sayrin",
+       "logo": {
+         "@type": "ImageObject",
+         "url": "https://google.com/logo.jpg"
+       }
+       },
+           "author": {
+              "@type": "Person",
+              "name": post.data.user.name
+          }
+        }
+
     return {
       post: post.data,
+      structuredData
     };
   },
   head () {
