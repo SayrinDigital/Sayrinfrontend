@@ -90,7 +90,7 @@ export default {
               email: 'hey@sayrin.cl',
               message: this.message,
               name: this.name,
-              mail: 'josepuma@sayrin.cl'
+              mail: 'josepuma@sayrin.cl',
               phone: this.phone
             })
             .then(response => {
