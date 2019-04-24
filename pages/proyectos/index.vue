@@ -83,7 +83,7 @@ export default {
       meta: [{
           hid: 'og-title',
           property: 'og:title',
-          content: 'Nuestro Blog | Sayrin '
+          content: 'Nuestros Proyectos | Sayrin '
         },
         {
           hid: 'og-sitename',
@@ -93,12 +93,12 @@ export default {
         {
           hid: 'og-description',
           property: 'og:description',
-          content: 'Espacio dedicado a noticias y contenido relevante a nuestra agencia e información que podría ser relevante con nuestros clientes.'
+          content: 'Colección de todos nuestros proyectos realizados en los diversos rubros.'
         },
         {
           hid: 'description',
           name: 'description',
-          content: 'Espacio dedicado a noticias y contenido relevante a nuestra agencia e información que podría ser relevante con nuestros clientes.'
+          content: 'Colección de todos nuestros proyectos realizados en los diversos rubros.'
         },
         {
           hid: 'og-url',
