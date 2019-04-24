@@ -1,7 +1,7 @@
 <template>
 
-  <div>
-        <div class="blog-card">
+  <div :data-category="entry.blogcategory.name">
+        <!--<div class="blog-card">
           <div class="uk-grid-small writer uk-flex uk-flex-middle uk-margin" uk-grid>
             <div class="uk-width-auto">
               <div >
@@ -18,12 +18,30 @@
             </div>
           </div>
         <nuxt-link :to="{name: 'blog-id', params: { id: entry.id } }" class="uk-display-block">
-          <Img v-if="entry.cover" :source="baseUrl + entry.cover.url "inview="bottom-to-top" alt=""></Img>
+          <Img   "inview="bottom-to-top" alt=""></Img>
        </nuxt-link>
           <div class="uk-margin">
-            <h5 v-if="entry.blogcategory" class="category">{{ entry.blogcategory.name }}</h5>
+            <h5 v-if="entry.blogcategory" class="category"></h5>
             <h3 class="title">{{ entry.title }}</h3>
-            <!--<p>{{ entry.updatedAt }}</p>-->
+            <p>{{ entry.updatedAt }}</p>
+          </div>
+        </div>-->
+        <div class="post-card">
+          <nuxt-link :to="{name: 'blog-id', params: { id: entry.id } }" class="uk-display-block">
+          <Img v-if="entry.cover" showinview inview="bottom-to-top" :source="baseUrl + entry.cover.url"></Img>
+        </nuxt-link>
+          <div class="uk-margin">
+           <div  uk-grid>
+             <div class="uk-width-expand">
+               <div><h4 class="ptitle">{{ entry.title }}</h4></div>
+             </div>
+             <div  class="uk-width-auto">
+               <div class="details uk-text-right">
+                 <p class="uk-display-inline-block uk-margin-small-right">18<span class="uk-icon uk-margin-small-left" uk-icon="heart"></span></p>
+                 <p class="uk-display-inline-block">260<span class="uk-icon uk-margin-small-left" uk-icon="happy"></span></p>
+               </div>
+             </div>
+           </div>
           </div>
         </div>
   </div>
@@ -32,7 +50,7 @@
 
 <script>
 
-import Img from '~/components/Image'
+import Img from '~/components/Cover'
 
 export default {
   data(){

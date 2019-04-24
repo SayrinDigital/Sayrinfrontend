@@ -13,7 +13,7 @@
 <script>
 
   import { TimelineLite, Back } from 'gsap'
-  import MainNav from '~/components/MainNav.vue'
+  import MainNav from '~/components/Navigator.vue'
   import Footer from '~/components/Footer'
 
   export default{

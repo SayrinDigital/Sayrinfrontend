@@ -1,5 +1,5 @@
 const pkg = require('./package')
-
+const axios = require('axios')
 
 module.exports = {
   mode: 'universal',
@@ -10,12 +10,12 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: "Sayrin - Agencia Digital",
+    title: "Sayrin - Agencia Digital en Chile y Perú",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: "La mezcla perfecta para hacer de tu marca algo increíble e innovador, trabajando con nuestras herramientas para impulsarte y diferenciarte de tu competencia." },
-      { hid: 'og-title', property: 'og:title', content: 'Sayrin - Agencia Digital' },
+      { hid: 'og-title', property: 'og:title', content: 'Sayrin - Agencia Digital en Chile y Perú' },
       { hid: 'og-sitename', property: 'og:site_name', content: 'Sayrin - Agencia Digital' },
       { hid: 'og-description', property: 'og:description', content: 'La mezcla perfecta para hacer de tu marca algo increíble e innovador, trabajando con nuestras herramientas para impulsarte y diferenciarte de tu competencia.' },
       { hid: 'og-url', name: 'og:url', content: 'https://sayrin.cl/'}
@@ -40,6 +40,7 @@ module.exports = {
   css: [
     'uikit/dist/css/uikit.css', '@/assets/style.scss'
   ],
+  serverMiddleware: ['~/api/index.js'],
 
   /*
   ** Plugins to load before mounting the App
@@ -66,6 +67,14 @@ module.exports = {
 
   sitemap: {
     hostname: 'https://sayrin.cl',
+    routes () {
+      return axios.get('https://api.sayrin.cl/posts')
+                       .then(res => res.data.map(article => ({
+                           url: '/blog/' + article.id,
+                           changefreq: 'daily',
+                           priority: 0.9
+                       })));
+    }
   },
 
   /*

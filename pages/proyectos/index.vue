@@ -136,6 +136,7 @@ import Card from '~/components/Blog/Card'
 
 export default {
 
+  layout: 'blog',
   head() {
     return {
       title: 'Nuestro Blog | Sayrin',
