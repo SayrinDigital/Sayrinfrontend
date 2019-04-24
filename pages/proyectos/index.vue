@@ -51,68 +51,8 @@
 
           <!-- Posts -->
              <div class="uk-child-width-1-2@s uk-grid-match post-list" uk-grid>
-                   <Card v-for="(post,index) in posts" :position="index%2==0" :entry="post" :key="post.id"></Card>
+                   <Card v-for="(post,index) in posts" :position="index%2==0" :project="post" :key="post.id"></Card>
                </div>
-               <!--<div>
-                 <div>
-                   <div class="post-card">
-                     <Cover inview="bottom-to-top" source="https://cdn.dribbble.com/users/1094383/screenshots/5299031/053.gif"></Cover>
-                     <div class="uk-margin">
-                      <div class="uk-child-width-1-2" uk-grid>
-                        <div>
-                          <div><h4 class="ptitle">TooPlay</h4></div>
-                        </div>
-                        <div>
-                          <div class="details uk-text-right">
-                            <p class="uk-display-inline-block uk-margin-small-right">18<span class="uk-icon uk-margin-small-left" uk-icon="heart"></span></p>
-                            <p class="uk-display-inline-block">260<span class="uk-icon uk-margin-small-left" uk-icon="happy"></span></p>
-                          </div>
-                        </div>
-                      </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-               <div>
-                 <div>
-                   <div class="post-card">
-                     <Cover inview="bottom-to-top" source="https://cdn.dribbble.com/users/345970/screenshots/6379476/artboard3_2x.png"></Cover>
-                     <div class="uk-margin">
-                      <div class="uk-child-width-1-2" uk-grid>
-                        <div>
-                          <div><h4 class="ptitle">TooPlay</h4></div>
-                        </div>
-                        <div>
-                          <div class="details uk-text-right">
-                            <p class="uk-display-inline-block uk-margin-small-right">18<span class="uk-icon uk-margin-small-left" uk-icon="heart"></span></p>
-                            <p class="uk-display-inline-block">260<span class="uk-icon uk-margin-small-left" uk-icon="happy"></span></p>
-                          </div>
-                        </div>
-                      </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>
-               <div>
-                 <div>
-                   <div class="post-card">
-                     <Cover inview="bottom-to-top" source="https://cdn.dribbble.com/users/594915/screenshots/6265899/dr-pr333_2x.jpg"></Cover>
-                     <div class="uk-margin">
-                      <div class="uk-child-width-1-2" uk-grid>
-                        <div>
-                          <div><h4 class="ptitle">TooPlay</h4></div>
-                        </div>
-                        <div>
-                          <div class="details uk-text-right">
-                            <p class="uk-display-inline-block uk-margin-small-right">18<span class="uk-icon uk-margin-small-left" uk-icon="heart"></span></p>
-                            <p class="uk-display-inline-block">260<span class="uk-icon uk-margin-small-left" uk-icon="happy"></span></p>
-                          </div>
-                        </div>
-                      </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>-->
              </div>
           <!-- EndPosts -->
 
@@ -132,7 +72,7 @@ import {
   TimelineLite,
   Back
 } from 'gsap'
-import Card from '~/components/Blog/Card'
+import Card from '~/components/ProjectCard'
 
 export default {
 
@@ -174,14 +114,14 @@ export default {
   }) {
     // We can use async/await ES6 feature
     const posts = await axios.get(
-      '/posts', {
+      '/projects', {
         params: {
           '_sort': 'updatedAt:DESC'
         }
       }
     )
 
-    const categories = await axios.get('/blogcategories')
+    const categories = await axios.get('/services')
 
     return {
       posts: posts.data,

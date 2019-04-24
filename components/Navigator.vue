@@ -43,7 +43,7 @@
       <ul class="main-nav uk-list">
         <li class="nav-item"><nuxt-link to="/">Inicio</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/proyectos">Servicios</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to="/">Proyectos</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to="/proyectos">Proyectos</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/blog">Blog</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/contacto">Contacto</nuxt-link></li>
       </ul>
