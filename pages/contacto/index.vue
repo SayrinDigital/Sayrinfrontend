@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     sendcontactmessage(){
-      axios.post('/api/notifyregister',{
+      axios.post('https://sayrin.cl/api/notifyregister',{
               email: 'hey@sayrin.cl',
               message: this.message,
               name: this.name,
