@@ -762,7 +762,9 @@ ul.menu-nav-main{
 @media only screen and (max-width: 640px) {
 
    #navlist{
+         text-align: center;
      li{
+           text-align: center;
        display: inline-block;
        margin-right: 10px;
      }

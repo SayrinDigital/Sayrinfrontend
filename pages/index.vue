@@ -8,15 +8,7 @@
       <div uk-grid class="uk-flex uk-flex-middle">
         <div class="uk-text-center uk-margin-auto" uk-parallax="opacity: 1,0">
           <div class="">
-            <div class="uk-overflow-hidden uk-position-relative">
-              <h1 class="main-title uk-text-capitalize text-mask">Somos Sayrin, Agencia Digital</h1>
-            </div>
-            <!--<div class="uk-overflow-hidden uk-position-relative">
-              <h5 class="main-header text-mask">La combinación perfecta para</h5>
-              </div>
-              <div class="uk-overflow-hidden uk-position-relative">
-                <h5 class="main-header text-mask">innovar tu marca</h5>
-              </div>-->
+              <h1 class="main-title uk-text-capitalize">Somos Sayrin, Agencia Digital</h1>
               <h5 class="main-header uk-margin-auto uk-width-xlarge@m uk-text-capitalize">La combinación perfecta para innovar tu marca</h5>
 
           </div>
